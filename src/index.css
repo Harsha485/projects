@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold-50: #fefdf6;
+  --color-gold-100: #fcf8e3;
+  --color-gold-200: #faf0b5;
+  --color-gold-300: #f4df77;
+  --color-gold-400: #ebc63e;
+  --color-gold-500: #d4af37; /* Metallic Gold */
+  --color-gold-600: #b89524;
+  --color-gold-700: #937418;
+  --color-gold-800: #705711;
+  --color-gold-950: #352906;
+}
+
+/* 3D Transform Utilities for Interactive Viva Flashcards */
+.perspective {
+  perspective: 1000px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.rotate-y-185 {
+  transform: rotateY(180deg);
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* ECE Hub Dynamic Light Theme Overrides for SVGs and Schematics */
+#schematic-container svg {
+  background-color: #f8fafc !important;
+}
+
+#schematic-container svg text {
+  fill: #1e293b !important;
+}
+
+#schematic-container svg text[fill="#94a3b8"] {
+  fill: #475569 !important;
+}
+
+#schematic-container svg text[fill="#f8fafc"] {
+  fill: #0f172a !important;
+}
+
+#schematic-container svg text[fill="#ffffff"] {
+  fill: #0f172a !important;
+}
+
+#schematic-container svg rect[fill="#1e293b"] {
+  fill: #ffffff !important;
+  stroke: #cbd5e1 !important;
+}
+
+#schematic-container svg rect[fill="#0f172a"] {
+  fill: #f1f5f9 !important;
+  stroke: #cbd5e1 !important;
+}
+
+#schematic-container svg rect[fill="#0b0f19"] {
+  fill: #f1f5f9 !important;
+  stroke: #cbd5e1 !important;
+}
+
+#schematic-container svg rect[fill="#0b0a19"] {
+  fill: #f1f5f9 !important;
+  stroke: #cbd5e1 !important;
+}
+
+#schematic-container svg path[stroke="#334155"] {
+  stroke: #cbd5e1 !important;
+}
+
+#schematic-container svg line[stroke="#334155"] {
+  stroke: #cbd5e1 !important;
+}
+
+#schematic-container svg path[fill="#0f172a"] {
+  fill: #f1f5f9 !important;
+  stroke: #cbd5e1 !important;
+}
+
+

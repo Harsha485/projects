@@ -1,0 +1,6 @@
+{
+  "name": "ece projects",
+  "description": "A complete learning, implementation, documentation, simulation, and project management hub for five major electronics and communication engineering projects.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
