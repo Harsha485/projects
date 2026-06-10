@@ -75,7 +75,10 @@ export default function App() {
           {/* Navigation Links body */}
           <nav className="p-3 space-y-1">
             <button
-              onClick={() => setActiveMenu("dashboard")}
+              onClick={() => {
+                setActiveMenu("dashboard");
+                if (typeof window !== 'undefined' && window.innerWidth < 768) setSidebarOpen(false);
+              }}
               className={`w-full text-left p-2.5 rounded-lg text-sm font-medium flex items-center gap-3 transition cursor-pointer ${
                 activeMenu === "dashboard"
                   ? (theme === "dark" ? "bg-slate-900 text-gold-400 font-semibold border-l-2 border-gold-400" : "bg-gold-100/60 text-gold-805 font-semibold border-l-2 border-gold-500 shadow-sm")
@@ -101,6 +104,7 @@ export default function App() {
                     onClick={() => {
                       setActiveMenu("project");
                       setActiveProjectId(project.id);
+                      if (typeof window !== 'undefined' && window.innerWidth < 768) setSidebarOpen(false);
                     }}
                     className={`w-full text-left p-2.5 rounded-lg text-sm font-medium flex items-center gap-3 transition cursor-pointer ${
                       isSelected
@@ -124,7 +128,10 @@ export default function App() {
               )}
 
               <button
-                onClick={() => setActiveMenu("resources")}
+                onClick={() => {
+                  setActiveMenu("resources");
+                  if (typeof window !== 'undefined' && window.innerWidth < 768) setSidebarOpen(false);
+                }}
                 className={`w-full text-left p-2.5 rounded-lg text-sm font-medium flex items-center gap-3 transition cursor-pointer ${
                   activeMenu === "resources"
                     ? (theme === "dark" ? "bg-slate-900 text-gold-400 font-semibold border-l-2 border-gold-400" : "bg-gold-100/60 text-gold-805 font-semibold border-l-2 border-gold-500 shadow-sm")
@@ -136,7 +143,10 @@ export default function App() {
               </button>
 
               <button
-                onClick={() => setActiveMenu("ai")}
+                onClick={() => {
+                  setActiveMenu("ai");
+                  if (typeof window !== 'undefined' && window.innerWidth < 768) setSidebarOpen(false);
+                }}
                 className={`w-full text-left p-2.5 rounded-lg text-sm font-medium flex items-center gap-3 transition cursor-pointer relative ${
                   activeMenu === "ai"
                     ? (theme === "dark" ? "bg-slate-900 text-gold-400 font-semibold border-l-2 border-gold-400" : "bg-gold-100/60 text-gold-805 border-l-2 border-gold-500 font-semibold shadow-sm")
@@ -153,7 +163,10 @@ export default function App() {
               </button>
 
               <button
-                onClick={() => setActiveMenu("settings")}
+                onClick={() => {
+                  setActiveMenu("settings");
+                  if (typeof window !== 'undefined' && window.innerWidth < 768) setSidebarOpen(false);
+                }}
                 className={`w-full text-left p-2.5 rounded-lg text-sm font-medium flex items-center gap-3 transition cursor-pointer ${
                   activeMenu === "settings"
                     ? (theme === "dark" ? "bg-slate-900 text-gold-400 font-semibold border-l-2 border-gold-400" : "bg-gold-100/60 text-gold-805 border-l-2 border-gold-500 font-semibold shadow-sm")
@@ -218,7 +231,11 @@ export default function App() {
 
         {/* Main View Area (Scrollable viewport) */}
         <main className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
-          {activeMenu === "dashboard" && <Dashboard />}
+          {activeMenu === "dashboard" && <Dashboard onNavigate={(id) => {
+            setActiveMenu("project");
+            setActiveProjectId(id);
+            if (typeof window !== 'undefined' && window.innerWidth < 768) setSidebarOpen(false);
+          }} />}
 
           {activeMenu === "project" && <ProjectDetail project={activeProject} />}
 
