@@ -120,7 +120,7 @@ export default function Dashboard() {
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">Showing completed percentages for Objectives, Systems Concepts, and Timelines.</p>
           </div>
 
-          <div className="h-64 mt-2">
+          <div className="h-64 mt-2 min-w-0">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartsData} margin={{ top: 10, right: 10, left: -20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />

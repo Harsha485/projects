@@ -13,8 +13,9 @@ import {
 export default function App() {
   const [activeMenu, setActiveMenu] = useState<"dashboard" | "project" | "resources" | "ai" | "settings">("dashboard");
   const [activeProjectId, setActiveProjectId] = useState<string>("vlsi_fpga");
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-
+  // Open sidebar by default only on desktop screens
+  const [sidebarOpen, setSidebarOpen] = useState(() => typeof window !== 'undefined' ? window.innerWidth >= 768 : true);
+  
   const { theme, setTheme, completedObjectives, completedConcepts } = useStore();
 
   // Handle visual dark / light mode document mapping
@@ -36,10 +37,18 @@ export default function App() {
   return (
     <div className={`min-h-screen font-sans flex transition-colors duration-250 ${theme === "dark" ? "bg-slate-950 text-slate-100" : "bg-white text-slate-800"}`}>
       
+      {/* Mobile overlay */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-slate-900/20 dark:bg-black/40 z-30 md:hidden backdrop-blur-sm"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* 1. SIDEBAR NAVIGATION PANELS */}
-      <aside className={`shrink-0 border-r transition-all duration-300 flex flex-col justify-between ${
-        theme === "dark" ? "bg-slate-950 border-slate-900" : "bg-gold-50/5 border-gold-100"
-      } ${sidebarOpen ? "w-64" : "w-0 md:w-16 overflow-hidden md:p-1"}`}>
+      <aside className={`fixed md:static inset-y-0 left-0 z-40 shrink-0 border-r transition-all duration-300 flex flex-col justify-between ${
+        theme === "dark" ? "bg-slate-950 border-slate-900" : "bg-[#fefdf6] border-gold-100"
+      } ${sidebarOpen ? "w-64 translate-x-0" : "-translate-x-full w-64 md:translate-x-0 md:w-16 overflow-hidden md:p-1"}`}>
         
         {/* Top Header Block */}
         <div>
